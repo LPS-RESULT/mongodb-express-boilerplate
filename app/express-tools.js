@@ -43,7 +43,7 @@ function getFirstScroll(request, meta) {
 function getLastScroll(request, meta) {
     return getDefaultScroll(request,meta)
         + "&offset="
-        + (Math.floor(meta.total / meta.limit) * meta.limit);
+        + ((Math.ceil(meta.total / meta.limit) * meta.limit) - meta.limit);
 }
 
 module.exports = {

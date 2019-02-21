@@ -27,7 +27,7 @@ Services do all the work for the API are defined here
 
 Contains all the test suites for the API
 
-## App Setup and startup
+## App Setup and environment file
 
 First off install the app basic dependencies by:
 
@@ -44,6 +44,35 @@ You can then edit that with a text editor you like:
     
 You can go ahead and change the values as needed. By default this should work
 on your local environment.
+
+## Setup Mongodb
+
+We need to create a repo file first:
+
+	sudo vim /etc/yum.repos.d/mongodb-org-3.6.repo
+	
+Then append the following:
+
+	[mongodb-org-3.6]
+	name=MongoDB Repository
+	baseurl=https://repo.mongodb.org/yum/amazon/2013.03/mongodb-org/3.6/x86_64/
+	gpgcheck=1
+	enabled=1
+	gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
+	
+Then install mongodb latest via: 
+
+	sudo yum install -y mongodb-org
+	 
+We can then start the mongod service via:
+
+	sudo service mongod start
+	
+TO ensure it gets restarted on reboot:
+
+	sudo chkconfig mongod on
+	
+## Running the app
 
 You can then run the server by hitting
 
