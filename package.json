@@ -1,0 +1,27 @@
+{
+  "name": "mongodb-express-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha tests/**/*.js --reporter spec --timeout 30000"
+  },
+  "description": "MongoDB & ExpressJS Restful API Boilerplate",
+  "author": "Jason Wong",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.4.13"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  }
+}
