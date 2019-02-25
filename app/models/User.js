@@ -24,6 +24,9 @@ let schema = mongoose.Schema({
     timestamps: true // Add timestamps (createdAt and updatedAt)
 });
 
+/**
+ * This is invoked BEFORE saving the document
+ */
 schema.pre('save', function(next) {
     let user = this;
     // only hash the password if it has been modified (or is new)
@@ -44,6 +47,11 @@ schema.pre('save', function(next) {
     });
 });
 
+/**
+ * This method compares the hashed password that is stored for the user
+ * @param candidatePassword
+ * @param cb
+ */
 schema.methods.comparePassword = function(candidatePassword, cb) {
     bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
         if (err) return cb(err);
